@@ -41,7 +41,7 @@ readline.question("Enter basic salary: ", basicSalary => {
 
                 readline.close();
             } else {
-                console.log("Invalid input! Benefits should be a non-negative number.");
+                console.log(Invalid input! Benefits should be a non-negative number.);
                 readline.close();
             }
         });
