@@ -1,0 +1,29 @@
+function calculateDemeritPoints(speed) {
+    const speedLimit = 70;
+    const kmPerPoint = 5;
+    if (speed < speedLimit) {
+        console.log("Ok");
+    } else {
+        const demeritPoints = Math.floor((speed - speedLimit) / kmPerPoint);
+        if (demeritPoints > 12) {
+            console.log("License suspended");
+        } else {
+            console.log(`Points: ${demeritPoints}`);
+        }
+    }
+}
+
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+readline.question("Enter the speed of the car (in km/h): ", speed => {
+    speed = parseInt(speed);
+    if (!isNaN(speed) && speed >= 0) {
+        calculateDemeritPoints(speed);
+    } else {
+        console.log("Invalid input! Speed should be a non-negative number.");
+    }
+    readline.close();
+});

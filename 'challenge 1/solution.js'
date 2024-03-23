@@ -1,0 +1,29 @@
+function calculateGrade(mark) {
+    if (mark > 79) {
+        return 'A';
+    } else if (mark >= 60 && mark <= 79) {
+        return 'B';
+    } else if (mark >= 49 && mark <= 59) {
+        return 'C';
+    } else if (mark >= 40 && mark <= 49) {
+        return 'D';
+    } else {
+        return 'E';
+    }
+}
+
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+readline.question("Enter student's mark (between 0 and 100): ", mark => {
+    mark = parseFloat(mark);
+    if (!isNaN(mark) && mark >= 0 && mark <= 100) {
+        const grade = calculateGrade(mark);
+        console.log(`Grade: ${grade}`);
+    } else {
+        console.log("Invalid input! Marks should be between 0 and 100.");
+    }
+    readline.close();
+});
